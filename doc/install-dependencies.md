@@ -5,6 +5,7 @@
 * [Debian 9](#debian-9)
 * [CentOS 6](#centos-6)
 * [Mac OSX](#mac-osx)
+* [Arch Linux](#archlinux)
 
 CentOS 7
 ========
@@ -107,4 +108,26 @@ brew install autoconf automake check pkg-config pcre cmake libtool openresty/bre
 
 # start etcd server with v2 protocol
 etcd --enable-v2=true &
+```
+
+Arch Linux
+=======
+
+```shell
+# install openresty
+yaourt -S openresty
+
+# install etcd
+sudo pacman -S etcd
+
+# install compilation tools
+sudo pacman -S luarocks base-devel
+
+# start etcd server with v2 protocol
+sudo echo 'ETCD_ENABLE_V2=true' >> /etc/conf.d/etcd
+sudo systemctl restart etcd
+
+# install Test::Nginx module
+sudo pacman -S cpanminus
+cpanm Test::Nginx
 ```
